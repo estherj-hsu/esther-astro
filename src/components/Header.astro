@@ -1,0 +1,42 @@
+---
+const menuItems = [
+  { name: 'Esther', url: '/esther/', icon: 'bubble' },
+  { name: 'Blog', url: '/posts/', icon: 'book' },
+  { name: 'Portfolio', url: '/portfolio/', icon: 'suitcase' },
+  { name: 'Playground', url: '/playground/', icon: 'cube' },
+  { name: 'Github', url: 'https://github.com/estherj-hsu', icon: 'git', external: true },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/estherjhsu/', icon: 'linkedin', external: true },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header>
+  <div>
+    <a href="/" class="logo">
+      <img width="280" src="/img/logo.png" alt="Esther: Version History logo">
+    </a>
+  </div>
+  <div>
+    <nav id="nav" class="nav">
+      <ul>
+        {menuItems.map((item) => (
+          <li class="nav-link">
+            <a
+              aria-current={currentPath === item.url ? 'page' : undefined}
+              aria-label={`${item.name}${item.external ? ' (Opens in new tab)' : ''}`}
+              href={item.url}
+              target={item.external ? '_blank' : '_self'}
+            >
+              <i
+                class="icon"
+                style={`--icon-url: url('/icons/icon-${item.icon}.svg')`}
+                aria-hidden="true"
+              ></i>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

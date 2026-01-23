@@ -1,0 +1,36 @@
+---
+title: "Thank you letter from MS"
+date: 2021-04-03T08:13:53+08:00
+draft: false
+tags:
+  - "Front-End"
+  - "Esther"
+slug: "ms interview result"
+---
+
+
+<Esther>
+I just got a thank you letter from Microsoft. 😭  
+I'm really upsad, but it's a such nice interview experiece.  
+
+</Esther>
+
+--------------------------
+
+雖然一開始就知道不太可能走到最後，但收到感謝信還是滿沮喪的  
+Brandon大大寄的信還附上他認為我有哪些優勢，以及他建議我再加強的方向  
+原本因為不確定能不能有on site面試而恐慌的心終於能鎮定下來  
+畢竟，這個職務是新的，所以我找不到任何相關的面試心得  
+所以只能參考過去UI Designer的on site面試經驗  
+預約的英文面試tutor也先取消了～  
+這次面試真的讓我對真正外國企業的文化改觀  
+也更加想要給自己出去闖闖的機會，雖然知道會讓自己非常辛苦  
+目前選定的地點是Vancouver，且朝著兩個方向在努力中：
+
+ 1. **Working Holiday**  
+ 今年不用抽籤，但需要拿到job offer才能出發是個問題  
+ 這陣子在更新履歷，希望能有其他不錯的機會用這方式出去
+ 2. **Study + Work**  
+ 也就是所謂的打工遊學，相對限制少，但成本很高  
+ 已經有找好有興趣的課程，正在研究co-op的規則中  
+ 雖然成本高，但結束後有可能可以靠working holiday再加一年

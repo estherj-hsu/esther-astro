@@ -1,0 +1,24 @@
+---
+title: "2022 Aug Reading Ref"
+date: 2022-08-25T17:20:22-07:00
+hidden: false
+draft: false
+tags:
+  - "UX/UI"
+slug: "2022 Aug"
+---
+
+
+<Esther>
+Time to read (again)!
+
+</Esther>
+
+--------------------------
+
+## UX/UI
+- [Atomic design 2022: what we can learn from Eames and other design giants](https://uxdesign.cc/atomic-design-2022-what-we-can-learn-from-eames-and-other-design-giants-4d8e2f579daa)
+- [The “dark yellow problem” in design system color palettes](https://uxdesign.cc/the-dark-yellow-problem-in-design-system-color-palettes-a0db1eedc99d)
+- [When to Use Which User-Experience Research Methods](https://www.nngroup.com/articles/which-ux-research-methods/)
+- [Creating Usability with Motion: The UX in Motion Manifesto](https://uxmag.com/articles/creating-usability-with-motion-the-ux-in-motion-manifesto)
+- [Why do we call it breadcrumbs? Diving into the history of UI components](https://uxdesign.cc/why-do-we-call-it-breadcrumbs-diving-into-the-history-of-ui-components-b35b813733e4)

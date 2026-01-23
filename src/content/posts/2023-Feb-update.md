@@ -1,0 +1,29 @@
+---
+title: "2023 Feb Update"
+date: 2023-03-10T11:27:04-08:00
+hidden: false
+draft: false
+tags:
+  - "Esther"
+slug: "2023-feb-update"
+---
+
+
+<Esther>
+It has been a while since the last update.  
+The good news is I got the invitation to IEC and will obtain a one-year open work permit. 🥳
+
+</Esther>
+
+--------------------------
+
+I was busy with the application for The School of Interactive Arts and Technology (SIAT) at SFU in the last few months.  
+There's Project-Based Master's Program that I'm interested in, and it also would be an alternative for me to staying in Canada.  
+After working on the application and IELTS test, I somehow got the invitation for IEC(the working holiday visa).  
+So... I filed my application for the one-year working permit and now actively looking for opportunities (again).  
+Since I don't need any sponsorship this time, hopefully, I will get the job I like soon.
+
+Besides the applications, I started assisting a local NGO to redesign and rebuild its website last December.  
+It's still ongoing, but I think I can finish the case study soon.
+
+All the best to me. ♥️

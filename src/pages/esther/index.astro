@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+let page;
+try {
+  const pages = await getCollection('pages', ({ id }) => id === 'esther/index');
+  page = pages[0];
+} catch (e) {
+  // Page not found, will show 404
+}
+
+if (!page) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await page.render();
+---
+
+<BaseLayout title={page.data.title || 'About Esther'}>
+  <Content />
+</BaseLayout>

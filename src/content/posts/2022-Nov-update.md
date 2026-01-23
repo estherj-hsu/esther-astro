@@ -1,0 +1,27 @@
+---
+title: "2022 Nov Update"
+date: 2022-12-06T10:46:53-08:00
+hidden: false
+draft: false
+tags:
+  - "Esther"
+slug: "2022-nov-update"
+---
+
+
+<Esther>
+Checked some items on the list  
+Also attended some in-person events (WomenHack, HackerX and IxDA) in Vancouver  
+Keep having calls and interviews 🥶
+
+</Esther>
+
+--------------------------
+
+- [x] Coursera: Indigenous Canada
+- [x] Mock Technical Interview Practice: Calculator (in Playground now)
+- [x] Frontend Challenge: React Weather Forecast application (in Playground now)
+- [ ] IxDF: Frontend Developer - 30%
+- [ ] Javascript from basic to advance again - 30%
+- [ ] Trivia Taiwan - 20%
+- [ ] Coursera: Introduction to Psychology - 8%

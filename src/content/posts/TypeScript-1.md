@@ -1,0 +1,307 @@
+---
+title: "TypeScript I: Types, Functions & Gernerics"
+date: 2023-03-22T11:26:14-07:00
+hidden: false
+draft: false
+tags:
+  - "Esther"
+  - "Front-End"
+---
+
+
+<Esther>
+Dive into Typescript! 🧐  
+Took a free course on [codecademy](https://www.codecademy.com/learn/learn-typescript) 🙇🏻‍♀️
+
+</Esther>
+
+--------------------------
+
+## Types
+
+```typescript
+  "Hello, world!"  // string
+  42               // number
+  true             // boolean
+  null
+  undefined
+```
+
+### Annotations
+
+```typescript
+  let typeString: string;
+  let typeNumber: number;
+  let typeBoolean: boolean;
+```
+
+## Functions
+
+### Parameter Type Annotations
+
+```typescript
+  function greet(noun: string) {
+    console.log(`Hello, ${noun}!`);
+  }
+```
+
+Make it optional:
+
+```typescript
+  function greet(name?: string) {
+    console.log(`Hello, ${ name || 'stranger' }!`);
+  }
+```
+
+Make it default:
+
+```typescript
+  function exponentiation(power = 1) {
+    console.log(4 ** power);
+  }
+```
+
+### Return Types
+
+Inferring Return Type:
+
+```typescript
+  function factOrFiction() {
+    return Math.random() >= .5 ? 'true' : 'false';
+  }
+
+  const myAnswer : boolean = factOrFiction();
+```
+
+Explicit Return Type:
+
+```typescript
+  function trueOrFalse(value: boolean): boolean {
+    if (value) {
+      return true;
+    }
+
+    return 'false'; // Typescript Error: Type 'string' is not assignable to type 'boolean'.
+  }
+```
+
+Void Return Type:
+
+```typescript
+  function sayHello(): void {
+      console.log('Hello!')
+  }
+```
+
+## Complex Types
+
+### Arrays
+
+```typescript
+  // One-Dimensional Array
+  let zipcodesNH: string[] = ['03255', '02134', '08002', '03063'];
+  // Generic Types
+  let zipcodesNH: Array<string> = ['03255', '02134', '08002', '03063'];
+
+  // Multi-dimensional Array
+  let zipcodes: string[][] = [zipcodesNH]
+
+  // Empty Array
+  let axis: string[] = [];
+  let coordinates: number[][] = [];
+```
+
+### Tuple Type
+
+What's a `Tuple`?  
+An array that has a *fixed size* of similar or different element types *arranged in a particular sequence*.
+
+```typescript
+  let profile: [string, number, boolean, number] = ['Kobe', 39, true, 150000];
+```
+
+ - A tuple cannot expand (assigning an array to a tuple that matches the same type and length will generate an error)
+ - `.concat()` can be called on a TypeScript tuple, and will return a new array
+
+### Function Rest Parameter Explicit Type
+
+```typescript
+  const sumAllNumbers = (...numberList: number[]): number => {
+    let sum = 0;
+    for (let i=0; i < numberList.length; i++) {
+      sum += numberList[i];
+    }
+    return sum;
+  }
+
+  console.log(sumAllNumbers(100, 70, 30));
+```
+
+#### Spread Syntax
+
+```typescript
+  function modulo(dividend: number, divisor: number): number {
+    return dividend % divisor;
+  }
+
+  const numbers: [number, number] = [6, 4];
+
+  // Call modulo() with spread syntax
+  console.log(modulo(...numbers));
+  // No error, prints 2
+```
+
+### Enum Type
+
+What's `enum`?  
+A *set of possible values* for a variable using TypeScript’s complex type. There're only two tpyes of enum: *numeric enum* and *string enum*.
+
+```typescript
+  // Numeric enum
+  enum ClassGrade {
+    Freshman = 9,
+    Sophomore,
+    Junior,
+    Senior
+  };
+
+  // String enum
+  enum ClassName {
+    Freshman = 'FRESHMAN',
+    Sophomore = 'SOPHOMORE',
+    Junior = 'JUNIOR',
+    Senior = 'SENIOR'
+  }
+
+  const studentClass: ClassName = ClassName.Junior;
+  const studentGrade: ClassGrade = ClassGrade.Junior;
+
+  console.log(`I am a ${studentClass} in ${studentGrade}th grade.`);
+  // Prints "I am a JUNIOR in 11th grade."
+```
+
+#### Numeric Enum Type Initializers
+
+A numeric enum type starts counting from 0, and the following options are automatically assigned an increasing number when you create it. But you can choose to give specific numbers to each option if you want.
+
+```typescript
+// This numeric enum type begins with a 1, instead of the default 0
+enum Weekdays {
+  Monday = 1,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday
+}
+
+// This numeric enum type has only some explicit values
+enum Prizes {
+  Pencil = 5,
+  Ruler,     // No error: value is 6
+  Eraser = 10,
+  Pen        // No error: value is 11
+};
+```
+
+### Object
+
+```typescript
+  let car: {make: string, model: string, year: number};
+
+  car = {make: 'Toyota', model: 'Camry', year: 2020};
+```
+
+### Type Alias
+
+Tpye alias can be defined any types in TypeScript, such as:
+
+- Primitive types (such as string, number, boolean, null, and undefined)
+- Object types (including interfaces and classes)
+- Union types
+- Function types
+- Array types (including tuple types)
+- ...
+
+```typescript
+  type Name = string;   // Primitive
+  type Names = string[];   // Array
+  type ID = string | number;   // Union
+  type RGBColor = [number, number, number];   // Tuple
+  type Add = (x: number, y: number) => number;   // Function
+
+  // Object Type Alia
+  type Student = {
+    name: string,
+    age: number,
+    courses: string[]
+  };
+  let boris: Student = {name: 'Boris', age: 35, courses: ['JavaScript', 'TypeScript']};
+```
+
+#### Function Type Alias
+
+A function type alias can be used to annotate a variable.
+
+```typescript
+  type NumberArrayToNumber = (numberArray: number[]) => number;
+
+  let sumAll: NumberArrayToNumber = function(numbers: number[]) {
+    let sum = 0;
+    for (let i=0; i < numbers.length; i++) {
+      sum += numbers[i];
+    }
+    return sum;
+  }
+
+  let computeAverage: NumberArrayToNumber = function(numbers: number[]) {
+    return sumAll(numbers)/numbers.length;
+  };
+
+  console.log(computeAverage([5, 10, 15]));   // Prints 10
+```
+
+## Generic
+
+- What *generic* means in TypeScript?  
+Generics allow you to create functions, classes, or interfaces that can work with different types of data, without specifying the type up front.
+- Does it have to be `T`?  
+No. `T` is just a convention that is commonly used to represent a generic type parameter.
+
+#### Generic Type Alias
+
+```typescript
+  type Collection<G> = {
+    name: string,
+    quantity: number,
+    content: G[]
+  };
+
+  let bookCollection: Collection<string> = {
+    name: 'Nursery Books',
+    quantity: 3,
+    content: ['Goodnight Moon', 'Humpty Dumpty', 'Green Eggs & Ham']
+  };
+
+  let primeNumberCollection: Collection<number> = {
+    name: 'First 5 Prime Numbers',
+    quantity: 5,
+    content: [2, 3, 5, 7, 11]
+  };
+```
+
+#### Generic Function Type Alias
+
+```typescript
+  function sortArray<T>(array: T[]): T[] {
+    return array.sort();
+  }
+
+  const stringArray = ['apple', 'banana', 'cherry'];
+  const sortedStringArray = sortArray(stringArray);
+  // returns ['apple', 'banana', 'cherry']
+
+  const numberArray = [3, 1, 2];
+  const sortedNumberArray = sortArray(numberArray);
+  // returns [1, 2, 3]
+
+```
