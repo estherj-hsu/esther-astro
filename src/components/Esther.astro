@@ -1,7 +1,8 @@
 ---
-// Component to replace Hugo's {{< esther >}} shortcode
+const { children } = Astro.props;
 ---
 
 <section class="esther">
+  <h2 class="visually-hidden">Author note</h2>
   <slot />
 </section>

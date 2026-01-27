@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Metadata from '../../components/Metadata.astro';
+import { postSlug } from '../../utils/postSlug';
+import { slugify } from '../../utils/slugify';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+
+  const tagMap = new Map<string, string>();
+
+  posts.forEach((post) => {
+    post.data.tags?.forEach((label) => {
+      const slug = slugify(label);
+
+      // Preserve first-seen capitalization
+      if (!tagMap.has(slug)) {
+        tagMap.set(slug, label);
+      }
+    });
+  });
+
+  return Array.from(tagMap.entries()).map(([slug, label]) => ({
+    params: { tag: slug },
+    props: { label },
+  }));
+}
+
+const { tag } = Astro.params;
+const { label } = Astro.props;
+
+const posts = (await getCollection('posts')).filter((post) =>
+  post.data.tags?.some(
+    (t) => slugify(t) === tag
+  )
+);
+---
+<BaseLayout title={`Tag: ${tag}`} mainClass="posts-list">
+  <h1>Tag: {label}</h1>
+
+  {posts.length === 0 ? (
+    <p>No posts found.</p>
+  ) : (
+    posts.map((post) => (
+      <article class="post">
+        <h2>
+          <a href={`/blog/${postSlug(post)}/`}>
+            {post.data.title}
+          </a>
+        </h2>
+
+        <Metadata
+          date={post.data.date}
+          tags={post.data.tags}
+        />
+      </article>
+    ))
+  )}
+</BaseLayout>

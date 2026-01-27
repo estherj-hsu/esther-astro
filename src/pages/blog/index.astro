@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Metadata from '../../components/Metadata.astro';
+import { postSlug } from '../../utils/postSlug';
+
+const posts = await getCollection('posts', ({ data }) => {
+  return !data.draft;
+});
+
+// Sort by date, newest first
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = a.data.date?.getTime() || 0;
+  const dateB = b.data.date?.getTime() || 0;
+  return dateB - dateA;
+});
+---
+
+<BaseLayout title="Blog Posts">
+  <h1 class="visibility-hidden">Blog</h1>
+  {sortedPosts.map((post) => (
+    <article class="post">
+      <h2>
+        <a class="title" href={`/blog/${postSlug(post)}/`}>
+          {post.data.title}
+        </a>
+      </h2>
+      {post.data.summary && <p class="summary">{post.data.summary}</p>}
+      <Metadata date={post.data.date} tags={post.data.tags} />
+    </article>
+  ))}
+</BaseLayout>

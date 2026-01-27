@@ -19,11 +19,9 @@ export default defineConfig({
     }),
   ],
   vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: `@import "./src/styles/variables.scss";`
-        }
+    resolve: {
+      alias: {
+        '@styles': '/src/styles'
       }
     }
   }

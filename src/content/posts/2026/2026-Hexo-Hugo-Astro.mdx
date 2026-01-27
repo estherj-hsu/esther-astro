@@ -1,0 +1,40 @@
+---
+title: "Hexo, Hugo, Astro \U0001F680"
+date: 2026-01-27T00:00:00.000Z
+slug: hexo-hugo-astro
+tags:
+  - "Esther"
+summary: "A small migration to reduce long-term friction. Structure first, visuals later."
+---
+
+<Esther>
+
+I didn’t plan to migrate my site again.  
+But at some point, maintaining it started to feel heavier than writing. 😮‍💨
+
+</Esther>
+
+---
+
+
+I originally chose Hugo because it was stable and well-structured.  
+It worked well for writing and organizing content.  
+But over time, the site slowly turned into Markdown mixed with a lot of HTML and shortcodes, which made the content harder to maintain.
+
+I explored a few other options along the way, including **Sveltia**, **Decap**, **Publii**, and **Ghost**.  
+I also briefly tried adding a CMS layer, but it quickly felt unnecessary for how I actually use this site.
+
+What I wanted to keep was simple: GitHub hosting, with the flexibility to customize both pages and the blog, without introducing extra tooling to maintain.
+
+**Astro** felt like a better fit for keeping content and layout loosely coupled, without adding more abstraction ✨
+
+The hardest parts of this migration were:
+
+- Converting Hugo shortcodes 🧩
+- Figuring out how to migrate with minimal changes, without rewriting the whole theme 🧱
+- Summary handling (Hugo `more` vs Astro) ✂️
+
+Many problems were not technical, but about deciding what to keep and what to let go.
+
+For now, the goal was to get everything working again with a clean structure.  
+Next, I’m planning to re-theme the site and clean up some old decisions 🎨

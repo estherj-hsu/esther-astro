@@ -1,22 +1,23 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Esther from '../../components/Esther.astro';
+import FolderGallery from '../../components/FolderGallery.astro';
+import { getCollection } from 'astro:content';
 
-let page;
-try {
-  const pages = await getCollection('pages', ({ id }) => id === 'portfolio/index');
-  page = pages[0];
-} catch (e) {
-  // Page not found, will show 404
-}
+const pages = await getCollection('pages');
+const entry = pages.find((e) => e.id === 'portfolio.mdx');
+if (!entry) throw new Error('Portfolio page not found');
 
-if (!page) {
-  return Astro.redirect('/404');
-}
-
-const { Content } = await page.render();
+const { Content } = await entry.render();
+const { data } = entry;
 ---
 
-<BaseLayout title={page.data.title || 'Portfolio'}>
-  <Content />
+<BaseLayout title={data.title}>
+  <h1>{data.title}</h1>
+
+  <Content 
+    components={{
+      Esther,
+      FolderGallery,
+    }} />
 </BaseLayout>

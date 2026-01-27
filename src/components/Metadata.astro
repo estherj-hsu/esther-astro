@@ -1,4 +1,6 @@
 ---
+import { slugify } from '../utils/slugify';
+
 interface Props {
   date?: Date;
   tags?: string[];
@@ -19,7 +21,7 @@ const { date, tags = [] } = Astro.props;
     <ul class="meta-tags">
       {tags.map((tag) => (
         <li>
-          <a href={`/tags/${tag}/`} class="tag">{tag}</a>
+          <a href={`/tags/${slugify(tag)}/`} class="tag">{tag}</a>
         </li>
       ))}
     </ul>

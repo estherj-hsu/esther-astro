@@ -8,21 +8,18 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "migrate": "node scripts/migrate-posts.js && node scripts/migrate-pages.js",
-    "tinacms:dev": "tinacms dev -c \"npm run dev\"",
-    "tinacms:build": "tinacms build && npm run build"
+    "migrate": "node scripts/migrate-posts.js && node scripts/migrate-pages.js"
   },
   "dependencies": {
     "@astrojs/mdx": "4.3.13",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.2.2",
     "astro": "^5.16.15",
+    "fslightbox": "3.7.4",
     "sass": "^1.77.0",
-    "tinacms": "^1.6.0",
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@tinacms/cli": "^1.6.0",
     "@types/node": "^22.10.2"
   }
 }

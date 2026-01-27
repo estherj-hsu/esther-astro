@@ -1,0 +1,81 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+
+const { src } = Astro.props;
+
+// Resolve folder under /public
+const galleryDir = path.join(
+  process.cwd(),
+  'public',
+  src.replace(/^\/+/, '')
+);
+
+let images = [];
+
+if (fs.existsSync(galleryDir)) {
+  images = fs
+    .readdirSync(galleryDir)
+    .filter(
+      (name) =>
+        /\.(gif|jpe?g|png|webp)$/i.test(name) &&
+        !name.includes('-thumb.')
+    )
+    .map((name) => {
+      const ext = path.extname(name);
+      const base = name.replace(ext, '');
+      const thumb = `${base}-thumb${ext}`;
+
+      return {
+        full: path.posix.join(src, name),
+        thumb: fs.existsSync(path.join(galleryDir, thumb))
+          ? path.posix.join(src, thumb)
+          : path.posix.join(src, name),
+      };
+    });
+}
+
+// group name per gallery
+const galleryName = `gallery-${Math.random().toString(36).slice(2)}`;
+---
+
+<style>
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .gallery a {
+    flex: 0 0 auto;
+    margin: 10px 0 0 10px;
+  }
+
+  .gallery img {
+    object-fit: cover;
+    width: calc((960px - 15px * 4) / 5);
+  }
+
+  @media (max-width: 960px) {
+    .gallery img {
+      width: calc((100vw - 60px * 2) / 3);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .gallery img {
+      width: calc((100vw - 72px) / 2);
+    }
+  }
+</style>
+
+<div class="gallery">
+  {images.map(({ full, thumb }) => (
+    <a
+      href={full}
+      data-fslightbox={galleryName}
+    >
+      <img src={thumb} alt="" loading="lazy" />
+    </a>
+  ))}
+</div>

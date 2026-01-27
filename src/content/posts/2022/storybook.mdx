@@ -1,0 +1,51 @@
+---
+title: "Storybook Time"
+date: 2022-07-20T13:56:13-07:00
+hidden: false
+draft: false
+tags:
+  - "Front-End"
+  - "Esther"
+slug: "storybook"
+---
+
+
+<Esther>
+
+Built a Storybook playground for me 🥳  
+Can't wait to create my own component library!
+
+</Esther>
+
+--------------------------
+
+## Step by step
+
+1. Get a react project first!  
+  [minimal-react-webpack-babel-setup](https://github.com/rwieruch/minimal-react-webpack-babel-setup)
+
+2. Add Storybook into the project  
+```
+npx storybook init
+```
+
+3. Fly!  
+```
+yarn storybook
+```
+
+### Troubleshootings
+
+Got this error during adding Storybook into the project
+
+```
+The engine "node" is incompatible with this module. Expected version "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0". Got "12.12.0" error Found incompatible module.
+```
+
+Change the node version by nvm
+
+```
+nvm --version
+nvm install 12.13.0
+```
+
