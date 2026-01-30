@@ -1,0 +1,41 @@
+# Deploy Astro build to the estherj-hsu.github.io repo (external).
+# Use this when esther-astro lives in a different repo than estherj-hsu.github.io.
+# Requires: repo secret GH_PAGES_TOKEN (classic PAT with repo scope).
+name: Deploy to GitHub Pages (external repo)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build with Astro
+        run: npm run build
+
+      - name: Deploy to estherj-hsu.github.io
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.GH_PAGES_TOKEN }}
+          external_repository: estherj-hsu/estherj-hsu.github.io
+          publish_dir: ./dist
+          keep_files: false
+          publish_branch: master
+          commit_message: ${{ github.event.head_commit.message }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
