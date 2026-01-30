@@ -1,5 +1,5 @@
 # Deploy Astro build to the estherj-hsu.github.io
-name: Deploy to GitHub Pages (external repo)
+name: Deploy to GitHub Pages
 
 on:
   push:
