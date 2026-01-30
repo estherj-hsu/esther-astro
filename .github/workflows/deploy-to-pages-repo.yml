@@ -1,6 +1,4 @@
-# Deploy Astro build to the estherj-hsu.github.io repo (external).
-# Use this when esther-astro lives in a different repo than estherj-hsu.github.io.
-# Requires: repo secret GH_PAGES_TOKEN (classic PAT with repo scope).
+# Deploy Astro build to the estherj-hsu.github.io
 name: Deploy to GitHub Pages (external repo)
 
 on:

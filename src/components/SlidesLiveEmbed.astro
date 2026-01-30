@@ -1,0 +1,9 @@
+---
+interface Props {
+  presentationId: string;
+}
+const { presentationId } = Astro.props;
+const containerId = `slideslive:${presentationId}`;
+---
+<div id={containerId}></div>
+<script async type="application/javascript" src={`https://slideslive.com/js_embed/presentations/${presentationId}`}></script>

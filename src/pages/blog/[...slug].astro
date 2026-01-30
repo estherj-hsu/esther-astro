@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Metadata from '../../components/Metadata.astro';
 import Esther from '../../components/Esther.astro';
+import SlidesLiveEmbed from '../../components/SlidesLiveEmbed.astro';
 import { postSlug } from '../../utils/postSlug';
 
 export async function getStaticPaths() {
@@ -27,6 +28,7 @@ const { Content } = await post.render();
     </div>
     <Content components={{
       Esther,
+      SlidesLiveEmbed,
     }} />
   </article>
 </BaseLayout>
